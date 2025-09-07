@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-darkGreen: #001a00;
+  --color-accentGreen: #4ade80;
+  --color-softGreen: #064e3b;
+}
+
+/* Global body styles */
+body {
+  @apply bg-darkGreen text-white font-mono;
+}
+
+@layer components {
+  .card {
+    @apply bg-softGreen rounded-xl shadow-lg shadow-green-300/50 flex flex-col w-full;
+  }
+}
