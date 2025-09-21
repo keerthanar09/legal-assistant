@@ -9,12 +9,10 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Handler for file upload
   const handleFileChange = (uploadedFile) => {
     setFile(uploadedFile);
   };
 
-  // Handler for Demystify button
   const handleDemystify = async () => {
     if (!file) return;
     setLoading(true);
@@ -22,14 +20,12 @@ export default function Home() {
     formData.append("file", file);
 
     try {
-      // Step 1: Parse document
       const res = await fetch("http://localhost:5000/api/parse", {
         method: "POST",
         body: formData,
       });
       const parsedData = await res.json();
 
-      // Step 2: Summarize immediately with parsed text
       const summaryRes = await fetch("http://localhost:5000/api/summarize", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -37,7 +33,6 @@ export default function Home() {
       });
       const summaryData = await summaryRes.json();
 
-      // Step 3: Navigate with parsed + summary
       localStorage.setItem("summary", JSON.stringify(summaryData));
       navigate("/demystified", { state: { parsed: parsedData, summary: summaryData } });
     } catch (err) {
