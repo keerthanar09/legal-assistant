@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Upload } from 'lucide-react';
 
-export default function UploadBox({ onFileChange }) {
+export default function UploadBox({ onFileChange, status }) {
   const fileInputRef = useRef();
 
   const handleIconClick = () => {
@@ -34,6 +34,7 @@ export default function UploadBox({ onFileChange }) {
         />
       </div>
       <p className="mt-2 text-sm">Click here to upload</p>
+      <p className="mt-2 text-xs text-center text-gray-400">{status}</p>
     </div>
   );
 }

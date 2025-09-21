@@ -2,6 +2,7 @@ import About from "./pages/About";
 import AfterUpload from "./pages/AfterUpload";
 import Home from "./pages/Home";
 import SummarizePage from "./pages/SummarizePage";
+import NegotiationPage from "./pages/NegotiationPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
           <Route path="/demystified" element={<AfterUpload />} />
           <Route path="/about" element={<About />} />
           <Route path="/summary" element={<SummarizePage />} />
+          <Route path="/negotiation-tips" element={<NegotiationPage />} />
         </Routes>
       </Router>
     </div>
