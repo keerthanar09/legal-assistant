@@ -83,7 +83,7 @@ def summarizer():
         summary = response.json()
         return jsonify(summary)
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error": "Summary is unavailable for larger documents at the moment"}), 500
     
 #----------------Negotiation Analysis----------------#
 load_dotenv()
