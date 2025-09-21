@@ -79,7 +79,7 @@ def summarizer():
         return jsonify({"error": "No extracted_text provided"}), 400
     extracted_text = data["extracted_text"]
     try:
-        response = requests.post(url, json={"text": extracted_text})
+        response = requests.post(url, json={"text": extracted_text}, timeout=20)
         summary = response.json()
         return jsonify(summary)
     except Exception as e:
